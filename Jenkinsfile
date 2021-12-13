@@ -21,6 +21,22 @@ pipeline {
 				echo "BUILD URL - $env.BUILD_URL"
 			}
 		}
+		
+		stage('package'){
+			steps{
+				sh "mvn clean install -DskipTests"
+			}
+		}
+		
+		stage('Docker Image Build'){
+			steps{
+				//"docker build -t bayvao/jenkins-microservice"$env.BUILD_TAG
+				
+				script{
+					dockerImage = docker.build("bayvao/jenkins-microservice:${env.BUILD_TAG}")
+				}
+			}
+		}
 	}
 	
 }
