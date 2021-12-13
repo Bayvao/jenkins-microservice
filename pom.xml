@@ -220,11 +220,11 @@
 			<name>nexus-release</name>
 			<url>http://192.168.0.106:8081/repository/nexus-release/</url>
 		</repository>
-		<repository>
+		<snapshotRepository>
 			<uniqueVersion>false</uniqueVersion>
 			<id>nexus-snapshot</id>
 			<name>nexus-snapshot</name>
 			<url>http://192.168.0.106:8081/repository/nexus-snapshot/</url>
-		</repository>
+		</snapshotRepository>
 	</distributionManagement>
 </project>
