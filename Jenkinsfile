@@ -5,6 +5,19 @@ pipeline {
 		dockerHome = tool 'myDocker'
 		mavenHome = tool 'myMaven'
 		PATH = "$dockerHome/bin:$mavenHome/bin:$PATH"
+		
+		registryCredentials = "nexus"
+        registry = "http://192.168.0.106:8081/"
+        dockerImage = ''
+		
+		 // This can be nexus3 or nexus2
+        NEXUS_VERSION = "nexus3"
+        // This can be http or https
+        NEXUS_PROTOCOL = "http"
+        // Where your Nexus is running
+        NEXUS_URL = "192.168.0.106:8081"
+        // Repository where we will upload the artifact
+        NEXUS_REPOSITORY = "nexus-release"
 	}
 	
 	stages {
@@ -28,6 +41,12 @@ pipeline {
 			}
 		}
 		
+		 stage("publish to nexus") {
+            steps {
+                sh "mvn -B jar:jar deploy:deploy"
+            }
+        }
+		
 		stage('Docker Image Build'){
 			steps{
 				//"docker build -t bayvao/jenkins-microservice"$env.BUILD_TAG
@@ -37,6 +56,16 @@ pipeline {
 				}
 			}
 		}
+		
+		// Uploading Docker images into Nexus Registry
+		stage(Docker Image Deploy to Nexus') {
+			steps{  
+				script {
+					docker.withRegistry(registry, registryCredentials) {
+					dockerImage.push();
+					dockerImage.push('latest');
+				}
+			}
+		}  
 	}
-	
 }
