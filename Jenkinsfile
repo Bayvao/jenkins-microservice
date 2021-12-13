@@ -57,7 +57,7 @@ pipeline {
 			}
 		}
 		
-		stage(Docker Image Deploy to Nexus') {
+		stage('Docker Image Deploy to Nexus') {
 			steps{  
 				script {
 					docker.withRegistry(registry, registryCredentials) {
