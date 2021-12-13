@@ -119,7 +119,7 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>${surefire.version}</version>
 				<!--<configuration>
-					<!--- JDK 7 - relax bytecode verifier to prevent double
+					<!-- JDK 7 - relax bytecode verifier to prevent double
 					<!-- instrumentation issues with OpenJPA tests and JaCoCo 
 					<!-- <argLine>-XX:-UseSplitVerifier ${jacoco.utAgentConfig}</argLine>
 					<!-- JDK 8 - bytecode verifier cannot be relaxed or disabled 
