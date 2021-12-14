@@ -41,12 +41,6 @@ pipeline {
 			}
 		}
 		
-		 stage("publish to nexus") {
-            steps {
-                sh "mvn deploy"
-            }
-        }
-		
 		stage('Docker Image Build'){
 			steps{
 				//"docker build -t bayvao/jenkins-microservice"$env.BUILD_TAG
