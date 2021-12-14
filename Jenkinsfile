@@ -43,7 +43,7 @@ pipeline {
 		
 		 stage("publish to nexus") {
             steps {
-                sh "mvn -B jar:jar deploy:deploy"
+                sh "mvn deploy"
             }
         }
 		
