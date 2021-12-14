@@ -7,7 +7,7 @@ pipeline {
 		PATH = "$dockerHome/bin:$mavenHome/bin:$PATH"
 		
 		registryCredentials = "nexus"
-        registry = "http://localhost:8081/"
+        registry = "http://127.0.0.1:8081/"
         dockerImage = ''
 		
 		 // This can be nexus3 or nexus2
@@ -15,7 +15,7 @@ pipeline {
         // This can be http or https
         NEXUS_PROTOCOL = "http"
         // Where your Nexus is running
-        NEXUS_URL = "192.168.0.106:8081"
+        NEXUS_URL = "127.0.0.1:8081"
         // Repository where we will upload the artifact
         NEXUS_REPOSITORY = "nexus-release"
 	}
