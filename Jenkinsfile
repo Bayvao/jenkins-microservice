@@ -7,7 +7,7 @@ pipeline {
 		PATH = "$dockerHome/bin:$mavenHome/bin:$PATH"
 		
 		registryCredentials = "jenkins-nexus"
-        registry = "http://nexus:8081/repository/docker-release/"
+        registry = "http://nexus:8081/"
         dockerImage = ''
 		
 		 // This can be nexus3 or nexus2
