@@ -6,7 +6,7 @@ pipeline {
 		mavenHome = tool 'myMaven'
 		PATH = "$dockerHome/bin:$mavenHome/bin:$PATH"
 		
-		registryCredentials = "Nexus3"
+		registryCredentials = "jenkins-nexus"
         registry = "http://nexus:8081/repository/docker-release/"
         dockerImage = ''
 		
