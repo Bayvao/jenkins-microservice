@@ -7,7 +7,7 @@ pipeline {
 		PATH = "$dockerHome/bin:$mavenHome/bin:$PATH"
 		
 		registryCredentials = "nexus"
-        registry = "http://35.245.176.217:8081/repository/docker-release/"
+        registry = "http://35.245.176.217:8081/"
         dockerImage = ''
 		
 		 // This can be nexus3 or nexus2
@@ -55,7 +55,6 @@ pipeline {
 			steps{  
 				script {
 					docker.withRegistry(registry, registryCredentials) {
-						dockerImage.push();
 						dockerImage.push('latest');
 					}
 				}
